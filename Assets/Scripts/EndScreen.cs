@@ -51,4 +51,10 @@ public class EndScreen : MonoBehaviour
         Score.setScore(0);
         SceneManager.LoadScene("WhackAScene");
     }
+
+    //Create a function to end the game
+    public void quit()
+    {
+        Application.Quit();
+    }
 }
