@@ -7,7 +7,7 @@ public class MoleSpawner : MonoBehaviour
 {
 
     //Create a vector3 array to hold spawn positions
-    Vector3[] spawnPos = new[] {new Vector3(-424f, 155f, 0f), new Vector3(-195f, 155f, 0f), new Vector3(118f, 155f, 0f), new Vector3(348f, 155f, 0f), new Vector3(-424f, -75f, 0f), new Vector3(-195f, -75f, 0f), new Vector3(115f, -75f, 0f), new Vector3(348f, -75f, 0f) };
+    Vector3[] spawnPos = new[] {new Vector3(-249f, 90f, 0f), new Vector3(-113f, 90f, 0f), new Vector3(68f, 90f, 0f), new Vector3(202f, 90f, 0f), new Vector3(-249f, -43f, 0f), new Vector3(-113f, -43f, 0f), new Vector3(67f, -43f, 0f), new Vector3(203f, -43f, 0f) };
     //Create variables to init on startup
     public static bool moleOnScreen = false;
     public GameObject objectToSpawn;
