@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Mole : MonoBehaviour
 {
+    //Create a variable to determine how much the score increases per mole clicked
     int moleValue = 1;
     
 
@@ -21,7 +22,7 @@ public class Mole : MonoBehaviour
 
     }
 
-    //Creates a function to increase score when mole is clicked
+    //Create a function to increase score when mole is clicked
     public void moleClicked()
     {
         Score.increaseScore(moleValue);

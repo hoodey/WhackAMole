@@ -11,7 +11,7 @@ public class Score : MonoBehaviour
     [SerializeField] TMP_Text header;
     [SerializeField] TMP_Text timer;
     [SerializeField] static int playerScore = 0;
-    [SerializeField] static float timeLeft = 10f;
+    [SerializeField] static float timeLeft = 30f;
     public static bool GameStarted = false;
 
     // Start is called before the first frame update
@@ -23,6 +23,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Conditional if the game has started (via the start button), show what the players score is, show the time remaining, decrease the time every second, and when time runs out, reset variables and end game
         if (GameStarted)
         {
             header.text = "Score: " + playerScore;
@@ -31,7 +32,7 @@ public class Score : MonoBehaviour
             if (timeLeft <= 0)
             {
                 GameStarted = false;
-                timeLeft += 10f;
+                timeLeft += 30f;
                 EndGame();
             }
         }
@@ -62,6 +63,7 @@ public class Score : MonoBehaviour
             GameStarted = true;
     }
 
+    //Create a function to end the game
     public void EndGame()
     {
         Destroy(GameObject.Find("Mole(Clone)"));
