@@ -24,7 +24,7 @@ public class Mole : MonoBehaviour
     //Creates a function to increase score when mole is clicked
     public void moleClicked()
     {
-        Score.setScore(moleValue);
+        Score.increaseScore(moleValue);
         Destroy(GameObject.Find("Mole(Clone)"));
         MoleSpawner.moleOnScreen = false;
     }

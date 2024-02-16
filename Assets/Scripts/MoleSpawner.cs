@@ -12,6 +12,7 @@ public class MoleSpawner : MonoBehaviour
     public GameObject objectToSpawn;
     public Transform moleCanvas;
     int moleSpawnPos;
+    int lastSpawn = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,11 @@ public class MoleSpawner : MonoBehaviour
             if (!moleOnScreen)
             {
                 spawnMole(spawnPos[moleSpawnPos]);
-                moleSpawnPos = Random.Range(0, 8);
+                lastSpawn = moleSpawnPos;
+                while (lastSpawn == moleSpawnPos)
+                {
+                    moleSpawnPos = Random.Range(0, 8);
+                }
                 moleOnScreen = true;
             }
         }

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class Score : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class Score : MonoBehaviour
     [SerializeField] TMP_Text header;
     [SerializeField] TMP_Text timer;
     [SerializeField] static int playerScore = 0;
-    [SerializeField] static float timeLeft = 60f;
+    [SerializeField] static float timeLeft = 10f;
     public static bool GameStarted = false;
 
     // Start is called before the first frame update
@@ -29,6 +31,8 @@ public class Score : MonoBehaviour
             if (timeLeft <= 0)
             {
                 GameStarted = false;
+                timeLeft += 10f;
+                EndGame();
             }
         }
     }
@@ -39,10 +43,16 @@ public class Score : MonoBehaviour
         return playerScore;
     }
 
+    //Create an increaser for playerscore
+    public static void increaseScore(int score)
+    {
+        playerScore += score;
+    }
+
     //Create a setter for playerscore
     public static void setScore(int score)
     {
-        playerScore += score;
+        playerScore = score;
     }
 
     //Create a function to start the game
@@ -50,5 +60,12 @@ public class Score : MonoBehaviour
     {
         if (!GameStarted)
             GameStarted = true;
+    }
+
+    public void EndGame()
+    {
+        Destroy(GameObject.Find("Mole(Clone)"));
+        MoleSpawner.moleOnScreen = false;
+        SceneManager.LoadScene("EndScreen");
     }
 }
