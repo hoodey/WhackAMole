@@ -9,7 +9,7 @@ public class Score : MonoBehaviour
     [SerializeField] TMP_Text header;
     [SerializeField] TMP_Text timer;
     [SerializeField] static int playerScore = 0;
-    [SerializeField] static int timeLeft = 60;
+    [SerializeField] static float timeLeft = 60f;
     public static bool GameStarted = false;
 
     // Start is called before the first frame update
@@ -24,7 +24,12 @@ public class Score : MonoBehaviour
         if (GameStarted)
         {
             header.text = "Score: " + playerScore;
-            timer.text = "Time: " + timeLeft;
+            timer.text = "Time: " + Mathf.RoundToInt(timeLeft);
+            timeLeft -= Time.deltaTime;
+            if (timeLeft <= 0)
+            {
+                GameStarted = false;
+            }
         }
     }
 
